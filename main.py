@@ -11,6 +11,7 @@ app = fastapi.FastAPI()
 
 origins = [
     "https://git.heroku.com/contactos-api-backend-heroku.git",
+    "https://git.heroku.com/contactos-api-frontend-heroku.git",
     "http://localhost:8080"
 ]
 
