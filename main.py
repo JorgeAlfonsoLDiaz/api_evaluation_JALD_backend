@@ -1,7 +1,7 @@
 import fastapi
 import sqlite3
 
-# from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 # Crea la base de datos
