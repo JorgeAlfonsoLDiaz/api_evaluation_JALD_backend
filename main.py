@@ -52,7 +52,7 @@ async def crear_contacto(contacto: Contacto):
     return contacto
 
 
-@app.get("/contactos/{email}")
+@app.get("/contactos")
 async def obtener_contacto(email: str):
     """Obtiene un contacto por su email."""
     # DONE Consulta el contacto por su email
