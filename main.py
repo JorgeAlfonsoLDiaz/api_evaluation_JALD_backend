@@ -82,3 +82,5 @@ async def eliminar_contacto(email: str):
     c.execute('DELETE FROM contactos WHERE email = ?', (email,))
     conn.commit()
     return {"message": "Contacto eliminado con éxito."}
+    
+    
