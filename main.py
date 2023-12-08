@@ -39,7 +39,7 @@ async def obtener_contactos():
         response = []
         for row in c:
             contacto = {"email":row[0], "nombre":row[1], "telefono":row[2]}
-            response.append(contacto)
+            response.append(contacto) 
     
     except:
         response = {"mensaje":"Error al consultar los datos"}
