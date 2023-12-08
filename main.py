@@ -29,7 +29,7 @@ class Contacto(BaseModel):
 
 # Rutas para las operaciones CRUD
 
-@app.get("/")
+@app.get("/", status_code=200, description="Endpoint raíz de la API.", summary="Endpoint raíz.")
 async def obtener_contactos():
     """Obtiene todos los contactos."""
     # DONE Consulta todos los contactos de la base de datos y los envia en un JSON
