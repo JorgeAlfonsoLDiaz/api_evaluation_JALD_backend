@@ -41,7 +41,7 @@ async def obtener_contactos():
         response = [{"email": row[0], "nombre": row[1], "telefono": row[2]} for row in c]
     
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail={"mensaje":"Error al consultar los datos"})
 
     finally:
         c.close()
@@ -57,7 +57,7 @@ async def crear_contacto(contacto: Contacto):
                   (contacto.email, contacto.nombre, contacto.telefono))
         conn.commit()
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, {"mensaje":"Error al crear el contacto"})
 
     return contacto
 
@@ -71,7 +71,7 @@ async def obtener_contacto(email: str):
         contacto = {"email": row[0], "nombre": row[1], "telefono": row[2]}
     
     if not contacto:
-        raise HTTPException(status_code=404, detail=f"No se encontró un contacto con el email {email}")
+        raise HTTPException(status_code=404, detail={"mensaje":"Error al consulta el registro"})
 
     return contacto
 
@@ -84,7 +84,7 @@ async def actualizar_contacto(email: str, contacto: Contacto):
                   (contacto.nombre, contacto.telefono, contacto.email, email))
         conn.commit()
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail={"mensaje":"Error al actualizar el registro."})
 
     return contacto
 
@@ -96,6 +96,6 @@ async def eliminar_contacto(email: str):
         c.execute('DELETE FROM contactos WHERE email = ?', (email,))
         conn.commit()
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail={"mensaje":"Error al consultar los datos"})
 
     return {"mensaje": f"Contacto con email {email} eliminado con éxito."}
