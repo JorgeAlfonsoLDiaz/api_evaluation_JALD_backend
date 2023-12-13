@@ -38,7 +38,7 @@ class Contacto(BaseModel):
 
 #  ------------------------ Login y Registro de usuarios ------------------------
 
-@app.post("/registrar/")
+@app.post("/registrar")
 def registrar(credentials: HTTPBasicCredentials = Depends(security_basic)):
 
     if not credentials.username or not credentials.password:
@@ -89,7 +89,7 @@ def login(credentials: HTTPBearer = Depends(security)):
         else:
             raise HTTPException(status_code=401, detail="Error: Token no válido o ha expirado")
 
-@app.get("/token/")
+@app.get("/token")
 def generar_token(credentials: HTTPBasicCredentials = Depends(security_basic)):
 
     # Verificar que se obtuvo el nombre y contraseña en las credenciales
