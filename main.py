@@ -1,9 +1,12 @@
-from fastapi import FastAPI, Depends
-import sqlite3
-
+from fastapi import FastAPI, Depends, HTTPException
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi security import HTTPBearer, HTTPAuthorizationCredentials
+from fastapi.security import HTTPBearer, HTTPBasic, HTTPBasicCredentials
 from pydantic import BaseModel
+import sqlite3
+import logging
+import uuid
+import hashlib
 
 # Crea la base de datos
 conn = sqlite3.connect("contactos.db")
