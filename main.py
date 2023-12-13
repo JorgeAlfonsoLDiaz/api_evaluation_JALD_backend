@@ -172,7 +172,7 @@ async def obtener_contacto(email: str, token: str = Depends(login)):
     for row in c:
         contacto = {"email":row[0], "nombre":row[1], "telefono":row[2]}
     
-     if contacto is None:
+    if contacto is None:
         raise HTTPException(status_code=404, detail="Contacto no encontrado")
 
     return contacto
