@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 INSERT INTO users (username, password)
-VALUES ('user1@example.com', '123456');
+VALUES ('user1@example.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92');
 
 INSERT INTO users (username, password)
-VALUES ('user2@example.com', '12345');
+VALUES ('user2@example.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5');
